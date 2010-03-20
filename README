@@ -1,0 +1,16 @@
+1. rake db:create
+
+2. rake db:migrate
+
+Most of the magic happens in the Harvest.rb model.  
+
+There are rake tasks for populating the database with projects, people, and time entries.
+
+rake harvest:get_projects
+
+rake harvest:get_people
+
+rake harvest:get hours
+
+PENDING:
+Project is wheneverized but it is not entirely implemented. Also the generated cron is not running properly.

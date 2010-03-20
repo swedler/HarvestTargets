@@ -1,0 +1,3 @@
+config/initializers/harvest_passwords.rb
+db/database.yml
+log/*

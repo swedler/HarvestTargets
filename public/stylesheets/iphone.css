@@ -1,0 +1,27 @@
+h1   { font-size:4em; font-weight:bold; }
+p { margin-bottom:.5em; font-size:1em;}
+
+.main-container {width:90%; margin:0 auto;}
+.nav-bar-restraint { width:90%; margin:0 auto; padding:3px 0; }
+.nav-bar a, .nav-bar a:active, .nav-bar a:visited { color:white; font-size:2em; }
+.progress-bar-container { width:100%;
+                          background:#eee;
+                          border:1px solid #ccc;
+                          min-height:100px;
+                          margin-bottom:20px;
+                          clear:both;
+                          -moz-border-radius: 5px; 
+                          -webkit-border-radius: 5px;
+                        }
+.progress-bar { -moz-border-radius: 5px; 
+                -webkit-border-radius: 5px;
+                box-shadow:inset 0 0 10px #999999;
+                -moz-box-shadow:inset 0 0 10px #999999;
+                float:left;
+                overflow:hidden;
+                height:100px;
+                padding:5px 0;
+                font-size:2em;
+              }
+              
+.action-link { font-size:.6em;}

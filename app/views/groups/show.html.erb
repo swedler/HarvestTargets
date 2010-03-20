@@ -1,0 +1,20 @@
+<h1><%= @group.name %><%= link_to "edit", edit_group_path(), :class => "action-link" %></h1>
+<hr/>
+<% @projects.each do |project| %>
+  <h1><%= project.name %> : <%= project.time_entries.map{|te| te.hours if te.date >= Time.now.beginning_of_week }.compact.sum %></h1>
+  <div class="progress-bar-container">
+    <% project.time_entries.map{|te| te.person}.uniq.each_with_index do |person, i| %>
+      <% entries = project.time_entries.select{|te| te.date >= Time.now.beginning_of_week && te.person == person} %>
+      <% user_hours = entries.map{|e| e.hours if e.date >= Time.now.beginning_of_week && e.date <= Time.now.end_of_week}.compact.sum %>
+      <% if user_hours > 0 %>
+        <div style="width:<%= ((user_hours)/35*100).to_i %>%;background:<%= get_color_code(i) %>;" class="progress-bar"> <%= person.first_name %> <%= person.last_name %> <%= user_hours %></div>
+      <% end %>
+    <% end %>
+    <br style="clear:both;" />
+
+  </div>
+  <% project.time_entries.map{|te| te.person}.uniq.each_with_index do |person, i| %>
+    <% entries = project.time_entries.select{|te| te.person == person} %>
+    <%= person.first_name %> <%= person.last_name %> <%= entries.map{|e| e.hours if e.date >= Time.now.beginning_of_week && e.date <= Time.now.end_of_week}.compact.sum %><br/>
+  <% end %>
+<% end %>

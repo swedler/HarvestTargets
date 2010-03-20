@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  harvest_project_id: 1
+  harvest_user_id: 1
+  date: 2010-03-06 10:24:00
+  hours: 1.5
+
+two:
+  harvest_project_id: 1
+  harvest_user_id: 1
+  date: 2010-03-06 10:24:00
+  hours: 1.5

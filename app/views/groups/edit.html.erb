@@ -1,0 +1,7 @@
+<h1>Editing <%= @group.name %></h1>
+<br/>
+<% form_for @group do |f| %>
+  <%= render :partial => "form", :locals => {:f  => f} %>
+  <%= f.submit "Update Group" %>
+    
+<% end %>

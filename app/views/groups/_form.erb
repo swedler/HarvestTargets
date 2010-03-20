@@ -1,0 +1,15 @@
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :start_date %>
+  <%= f.datetime_select :start_date, :default => Time.now.beginning_of_week %>
+</p>
+<p>
+  <%= f.label :end_date %>
+  <%= f.datetime_select :end_date, :default => Time.now.end_of_week %>
+</p>
+<% @projects.each do |project| %>
+  <p><%= check_box_tag 'group[project_ids][]', "#{project.id}", @group.projects.include?(project) ? true : false %> <%= project.name %></p>
+<% end %>

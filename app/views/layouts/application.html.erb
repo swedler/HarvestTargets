@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <%= stylesheet_link_tag("reset","application")  %>
+    <link media="only screen and (max-device-width: 480px)" 
+        href="/stylesheets/iphone.css" type="text/css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-bar-restraint">
+        <%= link_to "All Projects", projects_path %> | <%= link_to "Create Group", new_group_path() %>
+        <% Group.all_active.each do |group| %>
+          | <%= link_to group.name, group_path(group.id) %>
+        <% end %>
+        
+      </div>
+    </div>
+    <div class="main-container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

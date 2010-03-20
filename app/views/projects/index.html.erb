@@ -1,0 +1,10 @@
+<% @projects.each do |project| %>
+  <h1><%= project.name %></h1>
+  <div class="progress-bar-container">
+    <% project.time_entries.map{|te| te.person}.uniq.each_with_index do |person, i| %>
+      <% entries = project.time_entries.select{|te| te.person == person} %>
+      <div style="width:<%= ((entries.map{|e| e.hours if e.date >= Time.now.beginning_of_week && e.date <= Time.now.end_of_week}.compact.sum)/35*100).to_i %>%;background:<%= get_color_code(i) %>;" class="progress-bar"> <%= person.first_name %> <%= person.last_name %> <%= entries.map{|e| e.hours if e.date >= Time.now.beginning_of_week && e.date <= Time.now.end_of_week}.compact.sum %></div>
+    <% end %>
+    <br style="clear:both;" />
+  </div>
+<% end %>

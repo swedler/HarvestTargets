@@ -1,0 +1,7 @@
+<h1>Create a group of projects</h1>
+<br/>
+<% form_for @group do |f| %>
+  <%= render :partial => "form", :locals => {:f  => f} %>
+  <%= f.submit "Create Group" %>
+    
+<% end %>
