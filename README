@@ -2,7 +2,13 @@
 
 2. rake db:migrate
 
-Most of the magic happens in the Harvest.rb model.  
+Most of the magic happens in the Harvest.rb model, but you need to set up your api credentials:
+
+SUBDOMAIN        = yoursubdomain
+ACCOUNT_EMAIL    = youremail
+ACCOUNT_PASSWORD = yourpassword
+
+I suggest you put them in an initializer called harvest_passwords.rb. This is already in the .gitignore file
 
 There are rake tasks for populating the database with projects, people, and time entries.
 
